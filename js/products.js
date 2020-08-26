@@ -1,10 +1,14 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
-const ORDER_BY_PROD_COUNT = "Cant.";
+const ORDER_BY_SOLD_COUNT = "Cant"; //se modifica la const
+const ORDER_BY_COST = "preciocont" // creo la const
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var precioArray =  []
+
+
 
 function sortCategories(criteria, array){
     
@@ -22,13 +26,22 @@ function sortCategories(criteria, array){
             if ( a.name < b.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
+    }else if (criteria === ORDER_BY_SOLD_COUNT){ // Modifico la solictud del json
         result = array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
+            let aCount = parseInt(a.soldCount);
+            let bCount = parseInt(b.soldCount);
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_COST){ // Creo dentó de la función la condicional
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( aCount < bCount ){ return -1; }
+            if ( aCount >bCount ){ return 1; }
             return 0;
         });
     }
@@ -42,8 +55,8 @@ function showCategoriesList(){
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
 
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -54,7 +67,7 @@ function showCategoriesList(){
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ category.name +  ` </h4>
-                            <p> <strong>` + category.currency+ category.cost +`</strong> </p>
+                            <p id = "precio"> <strong>` + category.currency+ category.cost +`</strong> </p>
                             <small class="text-muted">` + category.soldCount + ` artículos</small>
                         </div>
                         <p class="mb-1">` + category.description + `</p>
@@ -99,8 +112,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowCategories(ORDER_DESC_BY_NAME);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_BY_PROD_COUNT);
+    document.getElementById("sortByCount").addEventListener("click", function(){ //Modifico el pedido de la condicional
+        sortAndShowCategories(ORDER_BY_SOLD_COUNT);
+    });
+
+    document.getElementById("preciocont").addEventListener("click", function(){  //Lamo a la funcion
+        sortAndShowCategories(ORDER_BY_COST);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
