@@ -4,9 +4,9 @@ function guardar(dato, pass){
   //El método trim elimina los espacios en blanco al inicio y al final del mismo.
       alert("El dato está vacío");
   }    else{
-  localStorage.setItem("usuario", dato.trim()); //setItem almacena el dato en la posición "usuario"
-  localStorage.setItem("password", pass.trim()); // Almaceno la contraseña
-  sessionStorage.setItem("usuario", dato.trim());
+  sessionStorage.setItem("usuario", dato.trim()); //setItem almacena el dato en la posición "usuario"
+  sessionStorage.setItem("password", pass.trim()); // Almaceno la contraseña
+  //sessionStorage.setItem("usuario", dato.trim());
   
   
  
