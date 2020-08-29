@@ -1,7 +1,8 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_SOLD_COUNT = "Cant"; //se modifica la const
-const ORDER_BY_COST = "preciocont" // creo la const
+const ORDER_ASC_BY_COST = "preciocont" // creo la const PRECIO ASC
+const ORDER_DESC_BY_COST = "precioconta"
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -35,13 +36,22 @@ function sortCategories(criteria, array){
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_COST){ // Creo dentó de la función la condicional
+    }else if (criteria === ORDER_ASC_BY_COST){ // Creo dentó de la función la condicional
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.cost);
             let bCount = parseInt(b.cost);
 
             if ( aCount < bCount ){ return -1; }
             if ( aCount >bCount ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_COST){ // Creo dentó de la función la condicional
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
             return 0;
         });
     }
@@ -117,9 +127,13 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("preciocont").addEventListener("click", function(){  //Lamo a la funcion
-        sortAndShowCategories(ORDER_BY_COST);
+        sortAndShowCategories(ORDER_ASC_BY_COST);
     });
 
+    document.getElementById("precioconta").addEventListener("click", function(){  //Lamo a la funcion
+        sortAndShowCategories(ORDER_DESC_BY_COST);
+    });
+    
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";

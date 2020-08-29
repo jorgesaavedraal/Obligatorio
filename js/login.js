@@ -1,40 +1,21 @@
+function guardar(dato, pass){  
 
- window.onload = function () {
-
-        
-        
-      document.loginjap.addEventListener('submit', validarFormulario);
-        
-        }
-        
-         
-        
-        function validarFormulario(evObject) {
-        
-        evObject.preventDefault();
-        
-        var todoCorrecto = true;
-        
-        var formulario = document.loginjap;
-        
-        for (var i=0; i<formulario.length; i++) {
-        
-                        if(formulario[i].value =='') {
-        
-                                       if (formulario[i].value == null || formulario[i].value.length == 0 || /^\s*$/.test(formulario[i].value)){
-        
-                                        alert (' Introduce usuario y contraseña ');
-        
-                                    todoCorrecto=false;
-                                 }
-        
-                      }
-        
-                      }
-        
-      if (todoCorrecto ==true) {formulario.submit();}
-        
-       }
+  if (dato.trim()==="" || pass.trim()===""){ //Chequea que el dato recibido no esté vacío. 
+  //El método trim elimina los espacios en blanco al inicio y al final del mismo.
+      alert("El dato está vacío");
+  }    else{
+  localStorage.setItem("usuario", dato.trim()); //setItem almacena el dato en la posición "usuario"
+  localStorage.setItem("password", pass.trim()); // Almaceno la contraseña
+  sessionStorage.setItem("usuario", dato.trim());
+  
+  
+ 
+  location.href="index.html";
+  
+  //getItem obtiene el dato almacenado en la posición "usuario"
+ 
+  }
+}
 
        
         

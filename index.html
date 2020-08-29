@@ -24,21 +24,26 @@
  
   
   <div class="login-box">
-    <img class="logo" src="img/logo_ceibal.png" alt="logo">
+
+
+     <img class="logo" src="img/logo_ceibal.png" alt="logo">
     <h1>Login Aquí</h1>
     <form name ="loginjap" class="liginbasico" method="get" action="inicio.html">
-        <!-- Usuario -->
-        <label for="username">Usuario</label>
-        <input id="nombre" type="text" placeholder="Enter Username">
 
-         <!-- Password -->
-         <label for="Password">Contraseña</label>
-         <input id="pass"  type="Password" placeholder="Enter Password">
 
-         <input type="submit" value="Login" > 
 
-         <p class="enlace"><a href="#">Crear registro</a></p>
-         
+
+      <input type=text id="dato" placeholder=" Usuario" required> <br><br>
+
+      <input type="password" id="pass" placeholder=" Contraseña " required> <br> <br>
+  
+  
+  
+      <button class= "login" onclick="guardar(dato.value, pass.value);">Login</button>
+  
+      <br><a href="#">Registaté Aquí!</a>
+      
+  
 
     </form>
 </div>
