@@ -6,7 +6,7 @@ function guardar(dato, pass){
   }    else{
   sessionStorage.setItem("usuario", dato.trim()); //setItem almacena el dato en la posición "usuario"
   sessionStorage.setItem("password", pass.trim()); // Almaceno la contraseña
-  //sessionStorage.setItem("usuario", dato.trim());
+ 
   
   
  
