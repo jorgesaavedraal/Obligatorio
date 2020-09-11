@@ -18,21 +18,110 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Usuario: <span id="user"></span></a>
+      <button class= "login" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';"> Desconectar</button>
     </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+   </nav>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información de la categoría seleccionada.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
+          seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
+      </div>
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Cantidad de productos</dt>
+        <dd>
+          <p id="soldCount"></p>
+        </dd>
+
+        <dt>Tipo de productos</dt>
+        <dd>
+          <p id="producto"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <dt>Productos relacionados:</dt> <br>
+      <div id="ProductRel"></div>
+      <dt>Comentarios:</dt> <br>
+      <div class="row">
+        
+        <div class="list-group" id="comentarios">
+        </div>
+        <div id="comentar">
+          </div> <br> 
     </div>
-  </div>
+
+    <h5>Deja tu comentario:</h5>
+    <div class="containera">
+      <form id="form">
+        <p class="clasificacion"> 
+         
+          <input  id="radio1" type="radio" name="estrellas" value="5" onclick="estrella.value = document.getElementById('radio1').value">
+          <label for="radio1">★</label>
+  
+          <input id="radio2" type="radio" name="estrellas" value="4" onclick="estrella.value = document.getElementById('radio2').value">
+          <label for="radio2">★</label>
+  
+          <input id="radio3" type="radio" name="estrellas" value="3" onclick="estrella.value = document.getElementById('radio3').value">
+          <label for="radio3">★</label>
+  
+          <input id="radio4" type="radio" name="estrellas" value="2" onclick="estrella.value = document.getElementById('radio4').value">
+          <label for="radio4">★</label>
+          
+          <input id="radio5" type="radio" name="estrellas" value="1" onclick="estrella.value = document.getElementById('radio5').value">
+          
+          <label for="radio5">★</label><h5>Puntuación:</h5> 
+          
+         
+          
+  
+          
+        </p>
+      </form>
+  
+      
+    </div>
+    
+  
+    
+    <div id=comment>
+     <!-- Campo de Texto -->
+    <textarea name="" id="comentario" cols="30" rows="5" placeholder="Ingrese su comentario"></textarea>
+    <input type="submit" value="Enviar" id="boton">
+    </div>
+    
+    <div id=comments>
+			
+    </div>
+
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+
+      
+
+    </div>
+
+
+    
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

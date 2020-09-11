@@ -49,5 +49,5 @@ document.addEventListener("DOMContentLoaded", function(e){
 var usuario = sessionStorage.getItem("usuario"); //getItem Obtiene el dato de la posición "usuario"
 
 document.getElementById('user').innerHTML=usuario;
-document.getElementById('sesion').innerHTML=sesion;
+
 //Nótese que si cerramos el navegador y volvemos a abrir, el dato sigue almacenado
