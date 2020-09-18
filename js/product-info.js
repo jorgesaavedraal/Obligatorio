@@ -8,15 +8,24 @@ function showImagesGallery(array){
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
 
+        if (i==0){
+            htmlContentToAppend += ` 
+            <div  align ="center" class="carousel-item active"> <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+            </div>
+            
+            `
+        }else{
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
+        
+        <div align ="center" class="carousel-item">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
-        </div>
+            
+          
         `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+    }
+   i++;
+    document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -84,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 var valorE=	"";
                 for (  let i=0 ; i < comentariosArray.score; i++) 
                 {
-                 valorE += '★';
+                 valorE += '<i class="fas fa-star"></i>';
                 }
 
                 html += `
@@ -108,14 +117,17 @@ boton.addEventListener('click', () => {
     let comentario = document.getElementById("comentario").value;
     let boton = document.getElementById("boton");
     let comments = document.getElementById("comentar");
-    let nombre = sessionStorage.getItem("usuario");
+    let nombre = localStorage.getItem("usuario");
    
     
     var valorE=	"";
     for (  let i=0 ; i < estrella.value; i++) 
     {
-     valorE += '★';
+     valorE += '<i class="fas fa-star"></i>';
 }
 
 comments.innerHTML = '<div class="comentario-box">'+ ' <h5> ' + nombre + ' -<label id=estrellaComment>' + valorE + '</label>'+'</h5>' +'<p>' + comentario + '</p>' +'</div>';
 });
+ 
+
+

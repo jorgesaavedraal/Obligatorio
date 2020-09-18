@@ -18,13 +18,21 @@
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Usuario: <span id="user"></span></a>
-      <button class= "login" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';"> Desconectar</button>
+      <a class="py-2 d-none d-md-inline-block" href="index.html"><i class="fab fa-windows"></i> Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html"><i class="fas fa-store"></i> Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html"><i class="fas fa-car-alt"></i> Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html"><i class="fas fa-comment-dollar"></i> Vender</a>
+      
+      <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle"></i> <span id="user"></span></a>
+      </a>
+       
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-astronaut"></i> Perfil</a>
+          <a class="dropdown-item" href="cart.html"><i class="fas fa-cart-plus"></i> Mi carrito</a>
+          <a class="dropdown-item" href='index.html'><i class="fas fa-power-off"></i> Cerrar sesion</a>
+        </div>
+      </div>
     </div>
    </nav>
   <main role="main">
@@ -32,8 +40,7 @@
       <div class="text-center p-4">
         <h2>Descripción del producto</h2>
         <p class="lead">Encontrarás aquí toda la información de la categoría seleccionada.</p>
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
-          seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
+        
       </div>
       <h3 id="productName"></h3>
       <hr class="my-3">
@@ -55,8 +62,17 @@
 
         <dt>Imágenes ilustrativas</dt>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          <div class= "carousel slide" data-ride="carousel" data-interval=3000  >
+             <!-- Indicadores -->
+             <ul class="carousel-indicators">
+             <li data-target="#demo" data-slide-to="0" class="active"></li>
+             <li data-target="#demo" data-slide-to="1"></li>
+             <li data-target="#demo" data-slide-to="2"></li>
+             </ul> 
+          <div class="carousel-inner" id="productImagesGallery" >
           </div>
+          
+        </div>
         </dd>
       </dl>
       <dt>Productos relacionados:</dt> <br>
@@ -76,20 +92,20 @@
         <p class="clasificacion"> 
          
           <input  id="radio1" type="radio" name="estrellas" value="5" onclick="estrella.value = document.getElementById('radio1').value">
-          <label for="radio1">★</label>
+          <label for="radio1"><i class="fas fa-thumbs-up"></i></label>
   
           <input id="radio2" type="radio" name="estrellas" value="4" onclick="estrella.value = document.getElementById('radio2').value">
-          <label for="radio2">★</label>
+          <label for="radio2"><i class="fas fa-thumbs-up"></i></label>
   
           <input id="radio3" type="radio" name="estrellas" value="3" onclick="estrella.value = document.getElementById('radio3').value">
-          <label for="radio3">★</label>
+          <label for="radio3"><i class="fas fa-thumbs-up"></i></label>
   
           <input id="radio4" type="radio" name="estrellas" value="2" onclick="estrella.value = document.getElementById('radio4').value">
-          <label for="radio4">★</label>
+          <label for="radio4"><i class="fas fa-thumbs-up"></i></label>
           
           <input id="radio5" type="radio" name="estrellas" value="1" onclick="estrella.value = document.getElementById('radio5').value">
           
-          <label for="radio5">★</label><h5>Puntuación:</h5> 
+          <label for="radio5"><i class="fas fa-thumbs-up"></i></label><h5>Puntuación:</h5> 
           
          
           
