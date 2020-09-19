@@ -115,9 +115,9 @@ document.addEventListener("DOMContentLoaded", function(e){
 var estrella = {}
 boton.addEventListener('click', () => {
     let comentario = document.getElementById("comentario").value;
-    let boton = document.getElementById("boton");
+    //let boton = document.getElementById("boton");
     let comments = document.getElementById("comentar");
-    let nombre = localStorage.getItem("usuario");
+    let nombre = sessionStorage.getItem("usuario");
    
     
     var valorE=	"";
